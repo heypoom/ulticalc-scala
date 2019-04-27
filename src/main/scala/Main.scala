@@ -7,12 +7,11 @@ trait Node {
 }
 
 trait OperatorNode extends Node {
-  override def toString: String = s"(${display(left, right)})"
+  override def toString: String = s"($left $operand $right)"
   val operand: String
 
   def compute(a: Int, b: Int): Int
   def compute(a: ValueNode, b: ValueNode): Int = compute(a.value, b.value)
-  def display(left: Node, right: Node): String = s"$left $operand $right"
 
   def solve(): Int = {
     println(s"Step> $left $operand $right")
